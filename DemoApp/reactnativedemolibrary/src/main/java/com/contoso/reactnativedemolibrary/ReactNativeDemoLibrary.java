@@ -6,6 +6,7 @@ import android.app.Application;
 import android.view.View;
 
 import com.contoso.reactnativedemolibrary.internal.ActivityLifeCycleHandler;
+import com.contoso.reactnativedemolibrary.internal.DemoReactPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactInstanceManagerBuilder;
 import com.facebook.react.ReactNativeHost;
@@ -25,7 +26,7 @@ public final class ReactNativeDemoLibrary {
         throw new IllegalStateException("Static class; do not instantiate.");
     }
 
-    public static View start(Activity activity) {
+    public static View start(Activity activity, boolean useDeveloperSupport) {
         Application application = activity.getApplication();
         ReactInstanceManagerBuilder builder = ReactInstanceManager.builder();
         ReactInstanceManager reactInstanceManager = builder
@@ -33,7 +34,8 @@ public final class ReactNativeDemoLibrary {
                 .setBundleAssetName("index.android.bundle")
                 .setJSMainModuleName("index.android")
                 .addPackage(new MainReactPackage())
-                .setUseDeveloperSupport(BuildConfig.DEBUG)
+                .addPackage(new DemoReactPackage())
+                .setUseDeveloperSupport(useDeveloperSupport)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
         ActivityLifeCycleHandler lifeCycleHandler = new ActivityLifeCycleHandler(activity, reactInstanceManager);

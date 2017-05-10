@@ -11,6 +11,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
     }
 
     configurations.all {
@@ -21,15 +24,6 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
-
-allprojects {
-    repositories {
-        maven {
-            // All of React Native (JS, Android binaries) is installed from npm
-            url "$rootDir/reactnativedemolibrary/node_modules/react-native/android"
         }
     }
 }

@@ -3,6 +3,8 @@
 import React from 'react';
 import {
   AppRegistry,
+  Button,
+  NativeModules,
   StyleSheet,
   Text,
   View
@@ -13,6 +15,10 @@ class HelloWorld extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.hello}>Hello, World</Text>
+        <Button
+          onPress={() => NativeModules.Dialer.dial('+1 (234) 567-8910')}
+          title='Dial +1 (234) 567-8910'
+        />
       </View>
     )
   }
