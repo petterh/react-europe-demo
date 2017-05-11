@@ -108,6 +108,15 @@ react-europe-demo/Artifacts
 
 ## Consuming `reactnativedemolibrary` from a host app
 
+You need to
+
+* reference `reactnativedemolibrary`;
+* tweak `build.gradle` to include the JS assets
+* add a new `Activity`;
+* potentially ensure you don't generate an .apk referencing 64-bit libraries.
+
+Once that's done, you can just run the host app, and everything should work.
+
 ### Referencing `reactnativedemolibrary` and (indirectly) `react-native` from Gradle
 
 Add a maven url `build.gradle`, pointing it to wherever your artifacts reside:
@@ -121,6 +130,24 @@ allprojects {
             // Get reactnativedemolibrary and react-native from here
             url "$rootDir/../Artifacts/maven"
         }
+    }
+}
+
+```
+
+### Including assets (the JavaScript bundle, for now, but we'll do images (promise!))
+
+While copying the JS bundle manually is always an option, getting Gradle to do it for you is better:
+
+```gradle
+task copyAssets(type: Copy) {
+    from "$rootDir/../Artifacts/assets"
+    into "src/main/assets"
+}
+
+afterEvaluate {
+    android.applicationVariants.all { variant ->
+        variant.javaCompiler.dependsOn(copyAssets)
     }
 }
 ```
@@ -140,24 +167,6 @@ public class ReactActivity1 extends AppCompatActivity {
     }
 }
 ```
-
-### Including assets (the JavaScript bundle, for now, but we'll do images (promise!))
-
-While copying the JS bundle manually is always an option, getting Gradle to do it for you is better:
-
-```gradle
-allprojects {
-    repositories {
-        jcenter()
-        ...
-        maven {
-            // Get reactnativedemolibrary and react-native from here
-            url "$rootDir/../Artifacts/maven"
-        }
-    }
-}
-```
-
 
 ## 32-bit vs. 64-bit
 
