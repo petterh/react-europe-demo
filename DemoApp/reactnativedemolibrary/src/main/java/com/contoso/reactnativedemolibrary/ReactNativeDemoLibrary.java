@@ -26,6 +26,14 @@ public final class ReactNativeDemoLibrary {
         throw new IllegalStateException("Static class; do not instantiate.");
     }
 
+    /**
+     * Create a react-native "HelloWorld" {@link ReactRootView}.
+     *
+     * @param activity The {@link Activity} that will host the {@code View}.
+     * @param useDeveloperSupport Pass {@code true} to load JS from development server. This requires
+     *                            overlay permission. Host applications should generally pass {@code false}.
+     * @return a new react-native "HelloWorld" {@link ReactRootView}.
+     */
     public static View start(Activity activity, boolean useDeveloperSupport) {
         Application application = activity.getApplication();
         ReactInstanceManagerBuilder builder = ReactInstanceManager.builder();

@@ -35,14 +35,20 @@ allprojects {
     }
 }
 
+task sourceJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier "sources"
+}
+
 // http://stackoverflow.com/questions/34872382/manually-adding-aar-with-dependency-pom-iml-file
 publishing {
     publications {
         maven(MavenPublication) {
             groupId 'com.contoso.react'
             artifactId 'reactnativedemolibrary'
-            version '0.1'
-            artifact "$buildDir/outputs/aar/reactnativedemolibrary-release.aar" //aar artifact you want to publish
+            version '0.1.1'
+            artifact(sourceJar)
+            artifact "$buildDir/outputs/aar/reactnativedemolibrary-release.aar"
 
             // Generate pom nodes for dependencies
             pom.withXml {
