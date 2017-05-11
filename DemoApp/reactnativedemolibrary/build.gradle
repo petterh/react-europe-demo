@@ -59,7 +59,7 @@ publishing {
         }
     }
 
-    // Publish to filesystem repo
+    // Publish to Artifacts
     repositories{
         maven {
             url "$rootDir/../Artifacts/maven"
@@ -67,6 +67,7 @@ publishing {
     }
 }
 
+// Copy the react-native maven pom to Artifacts (invoked from create-artifacts.cmd)
 task copyReactNativeTask(type: Copy) {
     from "$rootDir/reactnativedemolibrary/node_modules/react-native/android"
     into "$rootDir/../Artifacts/maven"
