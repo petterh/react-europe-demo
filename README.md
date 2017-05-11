@@ -63,5 +63,13 @@ The various **HostApp**s represent any existing app that wants to use the functi
 ## Creating artifacts
 
 The demo app links in react-native via reactnativedemolibrary, and in **Getting started** above, the JavaScript bundle isn't bundled with the apk; it's loaded from the dev server &ndash; we depend on it at runtime.
- 
+
+### The JavaScript bundle
+
 For production, the JavaScript must be bundled into the apk.
+
+### The native Java code
+
+We utilize a Gradle plugin called `maven-publish` to create a POM. [Source](http://stackoverflow.com/questions/34872382/manually-adding-aar-with-dependency-pom-iml-file)
+
+From `react-europe-demo\DemoApp\reactnativedemolibrary`, run `.\gradlew publish`.

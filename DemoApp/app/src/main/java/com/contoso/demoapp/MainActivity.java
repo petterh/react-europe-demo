@@ -9,8 +9,6 @@ import static com.contoso.demoapp.R.id.open_rn_activity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final int OVERLAY_PERMISSION_REQ_CODE = 9000;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
