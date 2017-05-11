@@ -11,7 +11,7 @@ Demo app for React Europe lightning talk (Paris, May 2017), showing how to creat
 * [Install Node.js](https://nodejs.org/en/download/)
 * For all commands that follow, use a shell with Node and Git in the path
 * `git clone https://github.com/petterh/react-europe-demo.git` in the folder where you want the repository
-* `cd react-europe-demo\DemoApp\reactnativedemo`
+* `cd react-europe-demo\DemoApp\reactnativedemolibrary`
 * `npm install` (creates a `node_modules` folder)
 * Install [Android Studio](https://developer.android.com/studio/install.html), following instructions on the React Native [Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) page.
 * Open `react-europe-demo\DemoApp` in Android Studio
@@ -35,9 +35,15 @@ react-europe-demo
   |     |
   |     +-- reactnativedemolibrary
   |
-  +-- HostApp
-  |
   +-- Artifacts
+  |
+  +-- HostApp1
+  |
+  +-- HostApp2
+  |
+  .
+  |
+  +-- HostApp_n
 ```
 
 **DemoApp** is an Android Studio project with two modules:
@@ -45,9 +51,9 @@ react-europe-demo
 * **app**: A testbed application that depends on the **reactnativedemolibrary** module. This module isn't strictly necessary, but is a great convenience.
 * **reactnativedemolibrary**: A react-native library with some JavaScript and a Java native module. (TODO: Add a resource as well, such as an image.)
 
-**HostApp** represents any existing app that wants to use the functionality offered by **reactnativedemolibrary**.
-
 **Artifacts** is a "repository"-ish container for **reactnativedemolibrary** artifacts:
+
+The various **HostApp**s represent any existing app that wants to use the functionality offered by **reactnativedemolibrary**. These consume the JavaScript in different ways.
 
 * The JavaScript bundle;
 * any other assets, such as images 
@@ -58,4 +64,4 @@ react-europe-demo
 
 The demo app links in react-native via reactnativedemolibrary, and in **Getting started** above, the JavaScript bundle isn't bundled with the apk; it's loaded from the dev server &ndash; we depend on it at runtime.
  
-For production, the JavaScript must be bundled into the apk. 
+For production, the JavaScript must be bundled into the apk.
