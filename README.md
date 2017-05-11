@@ -62,14 +62,46 @@ The various **HostApp**s represent any existing app that wants to use the functi
 
 ## Creating artifacts
 
-The demo app links in react-native via reactnativedemolibrary, and in **Getting started** above, the JavaScript bundle isn't bundled with the apk; it's loaded from the dev server &ndash; we depend on it at runtime.
+The demo app links in react-native via reactnativedemolibrary, and in **Getting started** above, the JavaScript bundle isn't bundled with the apk; it's loaded from the dev server &ndash; we depend on it at runtime. For production, the JavaScript must be bundled into the apk, done via the `react-native bundle` command. We also need to pack up our code into something a host app can consume. For this we utilize a Gradle plugin called `maven-publish` to create a POM. [Source](http://stackoverflow.com/questions/34872382/manually-adding-aar-with-dependency-pom-iml-file)
 
-### The JavaScript bundle
+From `react-europe-demo\DemoApp`, run `.\create-artifacts.cmd`. This will generate something like this:
 
-For production, the JavaScript must be bundled into the apk.
+```
+react-europe-demo/Artifacts
+  |
+  +-- assets
+  |     |
+  |     +-- index.android.bundle
+  |     +-- (additional non-essential files -- haven't gotten map to work (TODO))
+  |
+  +-- maven
+  |     |
+  |     +-- com
+  |           +-- contoso
+  |           |     |
+  |           |     +-- react
+  |           |           +-- reactnativedemolibrary
+  |           |                 +-- 0.1
+  |           |                 |     +-- reactnativedemolibrary-0.1.aar
+  |           |                 |     +-- reactnativedemolibrary-0.1.pom
+  |           |                 |     +-- (additional files)
+  |           |                 +-- maven-metadata.xml
+  |           |                 +-- (additional files)
+  |           +-- facebook
+  |           |     |
+  |                 +-- react
+  |                       +-- reactnativedemolibrary
+  |                             +-- 0.44.0
+  |                             |     +-- react-native-0.44.0.aar
+  |                             |     +-- react-native-0.44.0.pom
+  |                             |     +-- react-native-0.44.0-javadoc.jar
+  |                             |     +-- react-native-0.44.0-sources.jar
+  |                             |     +-- (additional files)
+  |                             +-- maven-metadata.xml
+  |                             +-- (additional files)
+  +-- res (not yet used; intended for images)
+```
 
-### The native Java code
+## Notes
 
-We utilize a Gradle plugin called `maven-publish` to create a POM. [Source](http://stackoverflow.com/questions/34872382/manually-adding-aar-with-dependency-pom-iml-file)
-
-From `react-europe-demo\DemoApp\reactnativedemolibrary`, run `.\gradlew publish`.
+* 32-bit vs 64-bit: React Native doesn't currently support 64-bit native (C/C++) modules.

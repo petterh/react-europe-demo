@@ -39,7 +39,7 @@ allprojects {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId 'com.contoso.reactnativedemolibrary'
+            groupId 'com.contoso.react'
             artifactId 'reactnativedemolibrary'
             version '0.1'
             artifact "$buildDir/outputs/aar/reactnativedemolibrary-release.aar" //aar artifact you want to publish
@@ -62,9 +62,14 @@ publishing {
     // Publish to filesystem repo
     repositories{
         maven {
-            url "$rootDir/../Artifacts/Maven"
+            url "$rootDir/../Artifacts/maven"
         }
     }
+}
+
+task copyReactNativeTask(type: Copy) {
+    from "$rootDir/reactnativedemolibrary/node_modules/react-native/android"
+    into "$rootDir/../Artifacts/maven"
 }
 
 dependencies {

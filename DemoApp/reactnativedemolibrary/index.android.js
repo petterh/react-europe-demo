@@ -24,7 +24,7 @@ class HelloWorld extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.hello}>Hello, World from{"\n" + this.state.libraryName}</Text>
+        <Text style={styles.hello}>Hello World! from{"\n" + this.state.libraryName}</Text>
       </View>
     )
   }

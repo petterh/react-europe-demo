@@ -5,26 +5,39 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.contoso.hostapp1"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // React Native doesn't currently support 64-bit binaries
+        // https://corbt.com/posts/2015/09/18/mixing-32-and-64bit-dependencies-in-android.html
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+//    configurations.all {
+//        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.0'
+//    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.code.findbugs', module: 'jsr305'
     })
+
     compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.contoso.react:reactnativedemolibrary:0.1'
+
     testCompile 'junit:junit:4.12'
 }
