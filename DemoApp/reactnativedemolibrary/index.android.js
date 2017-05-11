@@ -3,7 +3,6 @@
 import React from 'react';
 import {
   AppRegistry,
-  Button,
   NativeModules,
   StyleSheet,
   Text,
@@ -11,18 +10,26 @@ import {
 } from 'react-native';
 
 class HelloWorld extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {libraryName: ""};
+  }
+
+  async componentWillMount() {
+    const libraryName = await NativeModules.DemoLibrary.getName();
+    this.setState({libraryName});
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.hello}>Hello, World</Text>
-        <Button
-          onPress={() => NativeModules.Dialer.dial('+1 (234) 567-8910')}
-          title='Dial +1 (234) 567-8910'
-        />
+        <Text style={styles.hello}>Hello, World from{"\n" + this.state.libraryName}</Text>
       </View>
     )
   }
 }
+
 var styles = StyleSheet.create({
   container: {
     flex: 1,

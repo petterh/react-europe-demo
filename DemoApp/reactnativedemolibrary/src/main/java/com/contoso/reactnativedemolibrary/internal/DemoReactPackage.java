@@ -11,14 +11,14 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Exposes {@link DialerNativeModule} to JavaScript.
+ * Exposes {@link DemoLibraryNativeModule} to JavaScript.
  */
 public class DemoReactPackage implements ReactPackage {
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new DialerNativeModule(reactContext));
+        modules.add(new DemoLibraryNativeModule());
         return modules;
     }
 
