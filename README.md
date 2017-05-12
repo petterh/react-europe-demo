@@ -49,17 +49,18 @@ react-europe-demo
 
 **DemoApp** is an Android Studio project with two modules:
 
-* **app**: A test-bed application that depends on the **reactnativedemolibrary** module. This module isn't strictly necessary, but is a great convenience.
+* **app**: A test-bed application that depends on the **reactnativedemolibrary** module. This module isn't strictly necessary, but a great convenience.
 * **reactnativedemolibrary**: A react-native library with some JavaScript and a Java native module. (TODO: Add a resource as well, such as an image.)
+  * The JavaScript bundle;
+  * any other assets, such as images;
+  * a Maven POM holding the **reactnativedemolibrary** code;
+  * a Maven POM holding the **react-native** code.
 
-**Artifacts** is a "repository"-ish container for **reactnativedemolibrary** artifacts:
+**Artifacts** contains **reactnativedemolibrary** artifacts:
 
-The various **HostApp**s represent any existing app that wants to use the functionality offered by **reactnativedemolibrary**. These consume the JavaScript in different ways.
+**HostApp1** shows the `HelloWorld` JavaScript component in its own activity, just like **DemoApp**.
 
-* The JavaScript bundle;
-* any other assets, such as images
-* a Maven POM holding the **reactnativedemolibrary** code;
-* a Maven POM holding the **react-native** code.
+**HostApp2** shows the `HelloWorld` JavaScript component hosted within a normal Android layout.
 
 ## Creating artifacts
 
@@ -119,7 +120,7 @@ In other words, we really can't use the one currently available from jcenter. Bu
 You need to
 
 * reference `reactnativedemolibrary`;
-* tweak `build.gradle` to include the JS assets
+* tweak `build.gradle` to include the JS assets;
 * add a new `Activity`;
 * potentially ensure you don't generate an .apk referencing 64-bit libraries.
 
