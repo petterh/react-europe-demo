@@ -1,6 +1,6 @@
 # Problems you might encounter
 
-## Error calling Appariegistry.runApplication
+## Error calling AppRegistry.runApplication
 
 * Ensure that the debug server is running (**react-native start**)
 * Once it's running, **RELOAD** is sufficient
