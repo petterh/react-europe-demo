@@ -161,6 +161,11 @@ afterEvaluate {
 }
 ```
 
+Sources:
+
+* [Run task before compilation using Android Gradle plugin](http://stackoverflow.com/a/36334186/3968276)
+* [Gradle `Copy` class](https://docs.gradle.org/3.4/javadoc/org/gradle/api/tasks/Copy.html)
+
 ### Java code changes
 
 Create an `Activity` to host the react-native view:

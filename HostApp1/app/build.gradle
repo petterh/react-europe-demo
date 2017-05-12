@@ -26,11 +26,14 @@ android {
     }
 }
 
+// https://docs.gradle.org/current/userguide/working_with_files.html#sec:copying_files
+// https://docs.gradle.org/3.4/javadoc/org/gradle/api/tasks/Copy.html
 task copyAssets(type: Copy) {
     from "$rootDir/../Artifacts/assets"
     into "src/main/assets"
 }
 
+// http://stackoverflow.com/questions/16853130/run-task-before-compilation-using-android-gradle-plugin
 afterEvaluate {
     android.applicationVariants.all { variant ->
         variant.javaCompiler.dependsOn(copyAssets)

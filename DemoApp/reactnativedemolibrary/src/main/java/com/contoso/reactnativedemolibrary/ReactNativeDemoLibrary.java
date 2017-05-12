@@ -3,6 +3,7 @@ package com.contoso.reactnativedemolibrary;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.view.View;
 
 import com.contoso.reactnativedemolibrary.internal.ActivityLifeCycleHandler;
@@ -64,10 +65,11 @@ public final class ReactNativeDemoLibrary {
      *                            overlay permission. Host applications should generally pass {@code false}.
      *                            Pass the same value every time.
      * @return a new react-native "HelloWorld" {@link ReactRootView}.
-     * @exception IllegalArgumentException if {@code activity == null} or this method has previoulsy
+     * @exception IllegalArgumentException if {@code activity == null} or this method has previously
      * been called with a different value for {@code useDeveloperSupport}.
      */
-    public static View createHelloWorldView(Activity activity, boolean useDeveloperSupport) {
+    public static View createHelloWorldView(@NonNull Activity activity, boolean useDeveloperSupport) {
+        //noinspection ConstantConditions
         if (activity == null) {
             throw new IllegalArgumentException("Null activity passed to ReactNativeDemoLibrary.start");
         }
