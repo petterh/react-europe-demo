@@ -11,8 +11,7 @@ import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
  * Forwards life-cycle events to {@link ReactInstanceManager}. This saves the host
  * {@link Activity} from having to implement a fair bit of boilerplate code.
  *
- * TODO: Back-button handling needs forwarding to JS. Currently we exit the profile card,
- * regardless of how much we've navigated.
+ * TODO: Back-button handling needs forwarding to JS.
  */
 public final class ActivityLifeCycleHandler implements Application.ActivityLifecycleCallbacks, DefaultHardwareBackBtnHandler {
 
