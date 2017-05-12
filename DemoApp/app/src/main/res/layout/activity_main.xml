@@ -1,0 +1,31 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimaryDark"
+    android:layout_gravity="center"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="This is the demo app, used to develop our React Native component. This page is a normal Android layout; click the button to open the React Native activity."
+        android:textColor="@color/colorAccent"
+        style="@style/FrontPageItemStyle"
+    />
+
+    <Button
+        android:id="@+id/open_rn_activity"
+        android:layout_marginTop="120dp"
+        android:text="@string/open_rn_activity"
+        android:textSize="18sp"
+        style="@style/FrontPageItemStyle"
+    />
+
+</LinearLayout>
