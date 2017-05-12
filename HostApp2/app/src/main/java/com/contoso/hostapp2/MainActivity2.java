@@ -1,20 +1,24 @@
-package com.contoso.hostapp1;
+package com.contoso.hostapp2;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.FrameLayout;
 
 import com.contoso.reactnativedemolibrary.ReactNativeDemoLibrary;
 
 /**
- * Activity hosting react-native demo view.
+ * Activity showing a normal Android layout that includes the react-native demo view.
  */
-public class ReactActivity1 extends AppCompatActivity {
+public class MainActivity2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+
+        FrameLayout frame = (FrameLayout) findViewById(R.id.rn_view);
         View view = ReactNativeDemoLibrary.createHelloWorldView(this, false);
-        setContentView(view);
+        frame.addView(view);
     }
 }

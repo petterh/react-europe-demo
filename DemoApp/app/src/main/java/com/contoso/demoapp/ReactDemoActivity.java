@@ -47,7 +47,7 @@ public class ReactDemoActivity extends AppCompatActivity {
     }
 
     private void openReactView() {
-        View view = ReactNativeDemoLibrary.start(this, true);
+        View view = ReactNativeDemoLibrary.createHelloWorldView(this, true);
         setContentView(view);
     }
 }

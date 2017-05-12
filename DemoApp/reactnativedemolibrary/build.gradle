@@ -46,7 +46,7 @@ publishing {
         maven(MavenPublication) {
             groupId 'com.contoso.react'
             artifactId 'reactnativedemolibrary'
-            version '0.1.1'
+            version '0.2.0'
             artifact(sourceJar)
             artifact "$buildDir/outputs/aar/reactnativedemolibrary-release.aar"
 
@@ -65,12 +65,20 @@ publishing {
         }
     }
 
-    // Publish to Artifacts
+    // Publish to Artifacts/maven
     repositories{
         maven {
             url "$rootDir/../Artifacts/maven"
         }
     }
+}
+
+// Generate javadoc: http://stackoverflow.com/questions/17033878/generate-javadocs-with-android-gradle-plugin
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+    destinationDir = file("../javadoc/")
+    failOnError false
 }
 
 // Copy the react-native maven pom to Artifacts (invoked from create-artifacts.cmd)

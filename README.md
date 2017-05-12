@@ -14,14 +14,15 @@ Demo app for React Europe lightning talk (Paris, May 2017), showing how to creat
   * `cd react-europe-demo\DemoApp\reactnativedemolibrary`
   * `npm install` (creates a `node_modules` folder)
 * Open `react-europe-demo\DemoApp` in Android Studio
-* Build and run the `app` module (debug, for now &ndash; emulator or device doesn't matter)
+* Build and run the `app` module (debug, for now &ndash; emulator or device doesn't matter). You should see something like this:\
+  ![Demo App](img/DemoActivity.png)
 * From a shell with Node and Git in the path, start the development server:
   * `cd react-europe-demo\DemoApp\reactnativedemolibrary`
   * `react-native start`
+* Click the **Open React Native Activity** button. You should see something like this:\
+  ![Demo App](img/ReactNativeActivity.png)
 
-### Mac
-
-TODO
+### Mac **TODO**
 
 ## The code
 
@@ -106,7 +107,14 @@ react-europe-demo/Artifacts
   +-- res (not yet used; intended for images)
 ```
 
-## Consuming `reactnativedemolibrary` from a host app
+Why do we package the `react-native` we got from **npm** into `Artifacts/maven`? After all, `react-native` *is* available from maven jcenter. The version is, however, quite old. There's an ongoing discussion whether to update it whenever a new version is released, or to remove it altogether. Either one is fine by me, but the current situation is just asking for trouble:
+
+* [React-Native Maven is no longer actively updated with releases](https://github.com/facebook/react-native/issues/6459)
+* [Remove react-native package from maven central and jcenter](https://github.com/facebook/react-native/issues/13094)
+
+In other words, we really can't use the one currently available from jcenter. Bundling it ourselves has the added benefit of ensuring version consistency between react-native and our JavaScript code.
+
+## Consuming `reactnativedemolibrary` from host apps
 
 You need to
 
@@ -168,6 +176,8 @@ public class ReactActivity1 extends AppCompatActivity {
 }
 ```
 
+Host app #2 displays the `HelloWorld` component alongside other Android `View`s.
+
 ## 32-bit vs. 64-bit
 
 [React Native doesn't currently support 64-bit native (C/C++) modules](https://corbt.com/posts/2015/09/18/mixing-32-and-64bit-dependencies-in-android.html). To avoid problems, any host app *may* need to add something like this to `build.gradle`:
@@ -183,10 +193,3 @@ android {
     }
 }
 ```
-
-## Notes and issues that should perhaps be moved
-
-These are about the same thing:
-
-* [React-Native Maven is no longer actively updated with releases](https://github.com/facebook/react-native/issues/6459)
-* [Remove react-native package from maven central and jcenter](https://github.com/facebook/react-native/issues/13094)

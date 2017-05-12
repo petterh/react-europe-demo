@@ -7,11 +7,3 @@
 /build
 /captures
 .externalNativeBuild
-javadoc/
-npm-debug.log
-
-# Eclipse project files
-.classpath
-.project
-
-node_modules/
