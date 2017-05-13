@@ -22,7 +22,27 @@ Demo app for React Europe lightning talk (Paris, May 2017), showing how to creat
 * Click the **Open React Native Activity** button. You should see something like this:\
   ![Demo App](img/ReactNativeActivity.png)
 
-### Mac **TODO**
+### macOS
+
+* [Install Homebrew](https://brew.sh/)
+* Install Node: `brew install node watchman`
+* Install React Native CLI: `npm install -g react-native-cli`
+* Clone the repo: `git clone https://github.com/petterh/react-europe-demo.git`
+* Install npm packages:
+
+```bash
+cd react-europe-demo\DemoApp\reactnativedemolibrary
+npm install
+```
+
+* Open the Xcode project `iOSHostApp/iOSHostApp.xcodeproj`
+* Make sure `iOSHostApp` scheme is selected, then click on build and run
+
+The React Native watcher should automatically start before the app does. The app should look something like this:
+
+![Demo App](img/ReactNativeActivity.png)
+
+**Note:** The host app currently can only be run in the simulator because it is hardcoded to load JavaScript from localhost.
 
 ## The code
 
@@ -45,6 +65,14 @@ react-europe-demo
   :
   |
   +-- HostApp_n
+  |
+  +-- iOSHostApp
+        |
+        +-- ReactFramework
+        |
+        +-- iOSHostApp
+        |
+        +-- iOSHostApp.xcodeproj
 ```
 
 **DemoApp** is an Android Studio project with two modules:
@@ -61,6 +89,12 @@ react-europe-demo
 **HostApp1** shows the `HelloWorld` JavaScript component in its own activity, just like **DemoApp**.
 
 **HostApp2** shows the `HelloWorld` JavaScript component hosted within a normal Android layout.
+
+**iOSHostApp** is where the iOS app lives:
+
+* **ReactFramework**: React Native library with a demo native module.
+* **iOSHostApp**: Host app that embeds **ReactFramework**.
+* **iOSHostApp.xcodeproj**: Xcode project for building both the framework and the host app.
 
 ## Creating artifacts
 
