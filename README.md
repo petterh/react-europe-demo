@@ -100,6 +100,8 @@ react-europe-demo
 * **iOSHostApp**: Host app that embeds **ReactFramework**.
 * **iOSHostApp.xcodeproj**: Xcode project for building both the framework and the host app.
 
+Note that `iOSHostApp` contains two projects -- one provider and one consumer.
+
 ## Creating artifacts
 
 The demo app links in `react-native` via `reactnativedemolibrary`. In **Getting started** above, the JavaScript isn't bundled with the apk, but loaded from the dev server.
