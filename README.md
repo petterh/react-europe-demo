@@ -2,6 +2,10 @@
 
 Demo app for React Europe lightning talk (Paris, May 2017), showing how to create reusable react-native components that can be consumed by existing Android applications that don't want to take a dependency on **npm** and associated infrastructure.
 
+The Java code includes one sample native Android module. [Here are some other such samples](https://github.com/petterh/react-native-android-activity).
+
+While this sample is primarily Android-oriented, [Tommy Nguyen](https://github.com/tn0502) has been kind enough to make it run on macOS as well.
+
 ## Getting started
 
 ### Windows
@@ -42,13 +46,13 @@ The React Native watcher should automatically start before the app does. The app
 
 ![Demo App](img/ReactNativeActivity.png)
 
-**Note:** The host app currently can only be run in the simulator because it is hardcoded to load JavaScript from localhost.
+**Note:** The host app currently can only be run in the simulator because it is hard-coded to load JavaScript from localhost.
 
 ## The code
 
 This repository is structured as follows:
 
-```
+```none
 react-europe-demo
   |
   +-- DemoApp
@@ -106,7 +110,7 @@ The demo app links in `react-native` via `reactnativedemolibrary`. In **Getting 
 
 All three steps are invoked by the script `create-artifacts.cmd`. Run it from `react-europe-demo\DemoApp`to generate something like this:
 
-```
+```none
 react-europe-demo/Artifacts
   |
   +-- assets
@@ -149,7 +153,7 @@ Why do we package the `react-native` we got from **npm** into `Artifacts/maven`?
 
 In other words, we really can't use the one currently available from jcenter. Bundling it ourselves has the added benefit of ensuring version consistency between react-native and our JavaScript code.
 
-## Consuming `reactnativedemolibrary` from host apps
+## Consuming `reactnativedemolibrary` from an Android host app
 
 You need to
 
@@ -197,8 +201,8 @@ afterEvaluate {
 
 Sources:
 
-* [Run task before compilation using Android Gradle plugin](http://stackoverflow.com/a/36334186/3968276)
 * [Gradle `Copy` class](https://docs.gradle.org/3.4/javadoc/org/gradle/api/tasks/Copy.html)
+* [Run task before compilation using Android Gradle plugin](http://stackoverflow.com/a/36334186/3968276)
 
 ### Java code changes
 
