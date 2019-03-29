@@ -2,9 +2,9 @@
 
 Demo app for React Europe lightning talk (Paris, May 2017), showing how to create reusable react-native components that can be consumed by existing Android applications that don't want to take a dependency on **npm** and associated infrastructure.
 
-The Java code includes one sample native Android module. [Here are some other such samples](https://github.com/petterh/react-native-android-activity).
+The Java code includes one sample native Android module. [Here are some other such samples, for both Android and iOS](https://github.com/petterh/react-native-android-activity).
 
-While this sample is primarily Android-oriented, [Tommy Nguyen](https://github.com/tn0502) has been kind enough to make it run on macOS as well.
+While this sample is primarily Android-oriented, [Tommy Nguyen](https://github.com/tido64) has been kind enough to make it run on macOS as well.
 
 ## Getting started
 
@@ -226,7 +226,9 @@ Host app #2 displays the `HelloWorld` component alongside other Android `View`s.
 
 ## 32-bit vs. 64-bit
 
-[React Native doesn't currently support 64-bit native (C/C++) modules](https://corbt.com/posts/2015/09/18/mixing-32-and-64bit-dependencies-in-android.html). To avoid problems, any host app *may* need to add something like this to `build.gradle`:
+React Native [introduced 64-bits support for Android in release 0.59](https://github.com/facebook/react-native/releases/tag/v0.59.0).
+
+In earlier versions, any host app may need to add something like this to `build.gradle`:
 
 ```gradle
 android {
