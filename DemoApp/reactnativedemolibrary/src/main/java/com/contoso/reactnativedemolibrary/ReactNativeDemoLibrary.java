@@ -86,7 +86,7 @@ public final class ReactNativeDemoLibrary {
             reactInstanceManager = ReactInstanceManager.builder()
                     .setApplication(activity.getApplication())
                     .setBundleAssetName("index.android.bundle")
-                    .setJSMainModuleName("index.android")
+                    .setJSMainModulePath("index.android")
                     .addPackage(new MainReactPackage())
                     .addPackage(new DemoReactPackage())
                     .setUseDeveloperSupport(useDeveloperSupport)

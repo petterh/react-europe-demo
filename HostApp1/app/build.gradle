@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 28
+    buildToolsVersion '28.0.3'
+
     defaultConfig {
         applicationId "com.contoso.hostapp1"
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -36,20 +37,20 @@ task copyAssets(type: Copy) {
 // http://stackoverflow.com/questions/16853130/run-task-before-compilation-using-android-gradle-plugin
 afterEvaluate {
     android.applicationVariants.all { variant ->
-        variant.javaCompiler.dependsOn(copyAssets)
+        variant.javaCompileProvider.get().dependsOn(copyAssets)
     }
 }
 
 dependencies {
     copyAssets
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
         exclude group: 'com.google.code.findbugs', module: 'jsr305'
     })
 
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.contoso.react:reactnativedemolibrary:0.2.0'
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.contoso.react:reactnativedemolibrary:0.5.0'
 
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 }

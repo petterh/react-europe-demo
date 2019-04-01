@@ -4,7 +4,7 @@ Demo app for React Europe lightning talk (Paris, May 2017), showing how to creat
 
 The Java code includes one sample native Android module. [Here are some other such samples, for both Android and iOS](https://github.com/petterh/react-native-android-activity).
 
-While this sample is primarily Android-oriented, [Tommy Nguyen](https://github.com/tido64) has been kind enough to make it run on macOS as well.
+While this sample is primarily Android-oriented, [Tommy Nguyen](https://github.com/tido64) has been kind enough to make the basic demo app run on macOS as well.
 
 ## Getting started
 
@@ -12,17 +12,18 @@ While this sample is primarily Android-oriented, [Tommy Nguyen](https://github.c
 
 * [Install Git](https://git-scm.com/downloads)
 * [Install Node.js](https://nodejs.org/en/download/)
+* [Install Yarn](https://yarnpkg.com/lang/en/docs/install/)
 * Install [Android Studio](https://developer.android.com/studio/install.html), following instructions on the React Native [Getting Started](https://facebook.github.io/react-native/docs/getting-started.html) page.
 * From a shell with Node and Git in the path:
   * `git clone https://github.com/petterh/react-europe-demo.git` in the folder where you want the repository
   * `cd react-europe-demo\DemoApp\reactnativedemolibrary`
-  * `npm install` (creates a `node_modules` folder)
+  * `yarn` (creates a `node_modules` folder)
 * Open `react-europe-demo\DemoApp` in Android Studio
 * Build and run the `app` module (debug, for now &ndash; emulator or device doesn't matter). You should see something like this:\
   ![Demo App](img/DemoActivity.png)
 * From a shell with Node and Git in the path, start the development server:
   * `cd react-europe-demo\DemoApp\reactnativedemolibrary`
-  * `react-native start`
+  * `yarn start`
 * Click the **Open React Native Activity** button. You should see something like this:\
   ![Demo App](img/ReactNativeActivity.png)
 
@@ -30,13 +31,13 @@ While this sample is primarily Android-oriented, [Tommy Nguyen](https://github.c
 
 * [Install Homebrew](https://brew.sh/)
 * Install Node: `brew install node watchman`
-* Install React Native CLI: `npm install -g react-native-cli`
+* Install Yarn: `brew install yarn`
 * Clone the repo: `git clone https://github.com/petterh/react-europe-demo.git`
 * Install npm packages:
 
 ```bash
 cd react-europe-demo\DemoApp\reactnativedemolibrary
-npm install
+yarn
 ```
 
 * Open the Xcode project `iOSHostApp/iOSHostApp.xcodeproj`
@@ -110,7 +111,7 @@ The demo app links in `react-native` via `reactnativedemolibrary`. In **Getting 
 * We also need to pack up our code into something a host app can consume. For this we utilize a Gradle plugin called `maven-publish` to create a POM. [Source](http://stackoverflow.com/questions/34872382/manually-adding-aar-with-dependency-pom-iml-file)
 * Finally, we need to package `react-native` for host app consumption. Look for `copyReactNativeTask` in `reactnativedemolibrary/build.gradle`.
 
-All three steps are invoked by the script `create-artifacts.cmd`. Run it from `react-europe-demo\DemoApp`to generate something like this:
+All three steps are invoked by the script `create-artifacts.cmd` (`create-artifacts.sh` on Mac). Run it from `react-europe-demo\DemoApp`to generate something like this:
 
 ```none
 react-europe-demo/Artifacts

@@ -4,7 +4,7 @@
   "description": "React Native demo library",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/petterh/react-europe-demo#readme",
   "dependencies": {
-    "react": "16.0.0-alpha.6",
-    "react-native": "0.44.0"
+    "react": ">= 16.5.0",
+    "react-native": "^0.58.6"
   }
 }

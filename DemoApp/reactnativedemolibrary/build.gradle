@@ -2,21 +2,23 @@ apply plugin: 'com.android.library'
 apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
+        debug {
+            manifestPlaceholders = [isDebug:true]
+        }
         release {
+            manifestPlaceholders = [isDebug:false]
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -46,14 +48,14 @@ publishing {
         maven(MavenPublication) {
             groupId 'com.contoso.react'
             artifactId 'reactnativedemolibrary'
-            version '0.2.0'
+            version '0.5.0'
             artifact(sourceJar)
             artifact "$buildDir/outputs/aar/reactnativedemolibrary-release.aar"
 
             // Generate pom nodes for dependencies
             pom.withXml {
                 def dependenciesNode = asNode().appendNode('dependencies')
-                configurations.compile.allDependencies.each { dependency ->
+                configurations.implementation.allDependencies.each { dependency ->
                     if (dependency.group) {
                         def dependencyNode = dependenciesNode.appendNode('dependency')
                         dependencyNode.appendNode('groupId', dependency.group)
@@ -88,14 +90,14 @@ task copyReactNativeTask(type: Copy) {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile "com.facebook.react:react-native:0.44.0"
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation "com.facebook.react:react-native:0.58.6"
 
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 }
