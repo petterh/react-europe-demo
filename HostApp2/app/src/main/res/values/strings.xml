@@ -1,4 +1,3 @@
 <resources>
     <string name="app_name">HostApp2</string>
-    <string name="open_rn_activity">Open React Native Activity</string>
 </resources>

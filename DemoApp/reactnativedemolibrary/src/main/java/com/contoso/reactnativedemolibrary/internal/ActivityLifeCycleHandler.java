@@ -3,7 +3,8 @@ package com.contoso.reactnativedemolibrary.internal;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;

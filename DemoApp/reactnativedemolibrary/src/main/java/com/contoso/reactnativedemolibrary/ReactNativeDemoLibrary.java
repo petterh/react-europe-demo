@@ -3,8 +3,9 @@ package com.contoso.reactnativedemolibrary;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 import com.contoso.reactnativedemolibrary.internal.ActivityLifeCycleHandler;
 import com.contoso.reactnativedemolibrary.internal.DemoReactPackage;
@@ -85,6 +86,7 @@ public final class ReactNativeDemoLibrary {
         if (reactInstanceManager == null) {
             reactInstanceManager = ReactInstanceManager.builder()
                     .setApplication(activity.getApplication())
+                    .setCurrentActivity(activity)
                     .setBundleAssetName("index.android.bundle")
                     .setJSMainModulePath("index.android")
                     .addPackage(new MainReactPackage())
