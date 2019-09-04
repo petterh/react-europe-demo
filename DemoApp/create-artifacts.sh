@@ -23,7 +23,7 @@ mkdir -p "${artifacts}/assets"
 mkdir -p "${artifacts}/res"
 
 echo ${boldgreen}Publishing ${boldmagenta}reactnativedemolibry${boldgreen} and copying ${boldmagenta}node_modules/react-native/android${boldgreen} to maven${end}
-/bin/bash ../gradlew clean build publish copyReactNative
+/bin/bash ../gradlew clean build publish copyReactNative copyJdcAndroid
 
 echo ${boldgreen}Creating JS bundle${end}
 
