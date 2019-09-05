@@ -86,13 +86,12 @@ public final class ReactNativeDemoLibrary {
         if (reactInstanceManager == null) {
             reactInstanceManager = ReactInstanceManager.builder()
                     .setApplication(activity.getApplication())
-                    .setCurrentActivity(activity)
                     .setBundleAssetName("index.android.bundle")
                     .setJSMainModulePath("index.android")
                     .addPackage(new MainReactPackage())
                     .addPackage(new DemoReactPackage())
                     .setUseDeveloperSupport(useDeveloperSupport)
-                    .setInitialLifecycleState(LifecycleState.RESUMED)
+                    .setInitialLifecycleState(LifecycleState.BEFORE_RESUME)
                     .build();
         }
 
