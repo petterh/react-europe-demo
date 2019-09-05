@@ -8,7 +8,7 @@ While this sample is primarily Android-oriented, [Tommy Nguyen](https://github.c
 
 ## Getting started
 
-### Windows
+### Android (all platforms)
 
 * [Install Git](https://git-scm.com/downloads)
 * [Install Node.js](https://nodejs.org/en/download/)
@@ -27,7 +27,7 @@ While this sample is primarily Android-oriented, [Tommy Nguyen](https://github.c
 * Click the **Open React Native Activity** button. You should see something like this:\
   ![Demo App](img/ReactNativeActivity.png)
 
-### macOS
+### iOS (macOS only)
 
 * [Install Homebrew](https://brew.sh/)
 * Install Node: `brew install node watchman`
