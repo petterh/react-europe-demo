@@ -3,8 +3,9 @@ package com.contoso.reactnativedemolibrary;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 import com.contoso.reactnativedemolibrary.internal.ActivityLifeCycleHandler;
 import com.contoso.reactnativedemolibrary.internal.DemoReactPackage;
@@ -90,7 +91,7 @@ public final class ReactNativeDemoLibrary {
                     .addPackage(new MainReactPackage())
                     .addPackage(new DemoReactPackage())
                     .setUseDeveloperSupport(useDeveloperSupport)
-                    .setInitialLifecycleState(LifecycleState.RESUMED)
+                    .setInitialLifecycleState(LifecycleState.BEFORE_RESUME)
                     .build();
         }
 

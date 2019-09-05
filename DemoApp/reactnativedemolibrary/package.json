@@ -1,6 +1,6 @@
 {
   "name": "reactnativedemolibrary",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "React Native demo library",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,8 @@
   "keywords": [
     "react-native",
     "android",
-    "java"
+    "java",
+    "objective-c"
   ],
   "author": "Petter Hesselberg",
   "license": "ISC",
@@ -22,7 +23,11 @@
   },
   "homepage": "https://github.com/petterh/react-europe-demo#readme",
   "dependencies": {
-    "react": ">= 16.5.0",
-    "react-native": "^0.58.6"
+    "react": "16.8.6",
+    "react-native": "0.60.5",
+    "jsc-android": "245459.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5"
   }
 }
