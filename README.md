@@ -8,7 +8,7 @@ While this sample is primarily Android-oriented, [Tommy Nguyen](https://github.c
 
 ## Getting started
 
-### Android (all platforms)
+### Android (all platforms &ndash; replace backslash with forward slash on non-Windows platforms)
 
 * [Install Git](https://git-scm.com/downloads)
 * [Install Node.js](https://nodejs.org/en/download/)
@@ -89,7 +89,7 @@ react-europe-demo
   * a Maven POM holding the **reactnativedemolibrary** code;
   * a Maven POM holding the **react-native** code.
 
-**Artifacts** contains **reactnativedemolibrary** artifacts:
+**Artifacts** contains **reactnativedemolibrary** artifacts to be consumed by the various host apps. (In real life this might be published as a maven artifact to Azure DevOps or similar.)
 
 **HostApp1** shows the `HelloWorld` JavaScript component in its own activity, just like **DemoApp**.
 
@@ -185,7 +185,7 @@ allprojects {
 
 ```
 
-### Including assets (the JavaScript bundle, for now, but we'll do images (promise!))
+### Including assets (the JavaScript bundle, for now, but I'll extend this to images some day)
 
 While copying the JS bundle manually is always an option, getting Gradle to do it for you is better:
 
