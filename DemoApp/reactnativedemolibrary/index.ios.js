@@ -16,7 +16,7 @@ class HelloWorld extends React.Component {
     this.state = {libraryName: ""};
   }
 
-  async componentWillMount() {
+  async componentDidMount() {
     const libraryName = await NativeModules.DemoLibrary.getName();
     this.setState({libraryName});
   }
