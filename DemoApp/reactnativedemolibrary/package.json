@@ -1,6 +1,6 @@
 {
   "name": "reactnativedemolibrary",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React Native demo library",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,8 @@
   "keywords": [
     "react-native",
     "android",
-    "java"
+    "java",
+    "objective-c"
   ],
   "author": "Petter Hesselberg",
   "license": "ISC",
